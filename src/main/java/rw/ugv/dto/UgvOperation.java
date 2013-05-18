@@ -27,13 +27,15 @@ public class UgvOperation implements Serializable {
 	 */
 	private static final long serialVersionUID = 7251917582711374038L;
 
+
+
 	public UgvOperation() {
-		creatingTime = new Date();
+		id = new Date();
 	}
 	@Id
 	@Temporal( value = TemporalType.TIMESTAMP ) 
 	@Column (name = "ZAP_ID", nullable = false, updatable = false)
-	private Date creatingTime;
+	private Date id;
 	
 	@Temporal( value = TemporalType.TIMESTAMP ) 
 	@Column (name = "DATOP")
@@ -56,8 +58,16 @@ public class UgvOperation implements Serializable {
 	@Cascade(value = CascadeType.ALL)
 	private UgvTechnicalDetails ugvTechId;
 
+	public UgvTechnicalDetails getUgvTechId() {
+		return ugvTechId;
+	}
+
+	public void setUgvTechId(UgvTechnicalDetails ugvTechId) {
+		this.ugvTechId = ugvTechId;
+	}
+
 	public Date getCreatingTime() {
-		return creatingTime;
+		return id;
 	}
 
 	public Calendar getOpenDateInAB() {
@@ -77,7 +87,7 @@ public class UgvOperation implements Serializable {
 	}
 
 	public void setCreatingTime(Date creatingTime) {
-		this.creatingTime = creatingTime;
+		this.id = creatingTime;
 	}
 
 	public void setOpenDateInAB(Calendar openDateInAB) {
@@ -95,6 +105,16 @@ public class UgvOperation implements Serializable {
 	public void setUgvDocId(UgvDocument ugvDocId) {
 		this.ugvDocId = ugvDocId;
 	}
-	
+	public Date getId() {
+		return id;
+	}
+
+	public void setId(Date id) {
+		this.id = id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	
 }
